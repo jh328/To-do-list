@@ -9,19 +9,13 @@
       <change afterPath="$PROJECT_DIR$/../next-portfolio/src/app/components/Header.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../next-portfolio/src/app/components/Layout.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../onbite-typescript/section01/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/free-icon-edit-button-6065488.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/free-icon-up-arrow-5174032.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/free-icon-x-symbol-75519.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/component/Bord.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/component/Calendar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/component/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/component/Todo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/todoStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/component/Calendar/CalendarStyle.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../vanilla-javascript/lotto/app.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../vanilla-javascript/lotto/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../vanilla-javascript/typing-animation/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../vanilla-javascript/typing-animation/script.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../vanilla-javascript/typing-animation/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../udemy-RN-project/section03/components/GoalInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/../udemy-RN-project/section03/components/GoalInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../udemy-RN-project/section04/components/PrimaryButton.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../udemy-RN-project/section04/screens/GameOverScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../udemy-RN-project/section04/screens/GameOverScreen.js" afterDir="false" />
@@ -84,7 +78,7 @@
       <workItem from="1739964228403" duration="12323000" />
       <workItem from="1740016328728" duration="20509000" />
       <workItem from="1740061778195" duration="1888000" />
-      <workItem from="1740121472561" duration="1199000" />
+      <workItem from="1740121472561" duration="2337000" />
     </task>
     <servers />
   </component>
