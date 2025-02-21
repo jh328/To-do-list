@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import {createJSONStorage, persist} from "zustand/middleware";
 
 interface TodoState {
     todos: string[];
@@ -76,7 +76,8 @@ export const useTodoStore = create<TodoState>()(
             }),
         }),
         {
-            name: "todo-storage", // ✅ 로컬 스토리지에서 저장될 key 값
+            name: "todo-storage",
+            storage: createJSONStorage(() => sessionStorage),
         }
     )
 );

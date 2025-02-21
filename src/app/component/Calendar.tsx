@@ -5,6 +5,7 @@ import 'react-calendar/dist/Calendar.css';
 import BordPage from "@/app/component/Bord";
 import Header from "@/app/component/Header";
 import TodoPage from "@/app/component/Todo";
+import {StyledCalendar, StyledCalendarWrapper} from "@/app/component/Calendar/CalendarStyle";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -29,6 +30,7 @@ export default function Page() {
             </div>
 
             <Header/>
+
             {showCalendar && (
                 <div className="calendar-wrapper">
                     <Calendar
@@ -51,5 +53,6 @@ export default function Page() {
                 <BordPage/>
             </div>
         </div>
+
     );
 }
