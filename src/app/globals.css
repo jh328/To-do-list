@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+.layout-container {
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    @apply text-center text-blue-400 text-[18px]
+}
+
+.todo-list-input {
+    @apply underline-offset-1 text-[14px] text-center outline-none border-b border-gray-300 w-[200px] bg-transparent;
+}
+
+.todo-list-header {
+    @apply flex items-center gap-[8px] justify-center
+}
+
+.todo-box {
+    @apply w-[280px] min-h-[300px] bg-white rounded-[15px] shadow-lg p-4 border-2 border-blue-300;
+}
+
+.todo-container {
+    @apply flex justify-center items-center gap-6 mt-[20px]
+}
+
+.todo-title{
+    @apply text-blue-400 text-lg font-bold text-center mb-4;
+}
+
+.todo-item {
+    @apply bg-blue-400 text-white py-2 px-4 rounded-lg flex items-center justify-between shadow-md cursor-pointer;
+}
+
+.button-group{
+    @apply flex gap-x-1
+}
+
+.hidden{
+    @apply absolute invisible overflow-hidden h-0 w-0 m-0 p-0
+}
+
+.ico_modify{
+    @apply bg-[url("/images/free-icon-edit-button-6065488.png")] inline-block w-[40px] h-[40px] bg-cover bg-center
+}
+
+.ico_arrow{
+    @apply inline-block w-[20px] h-[30px] bg-cover bg-center bg-[url("/images/free-icon-up-arrow-5174032.png")]
+}
+
+.ico_arrow_down {
+    @apply inline-block w-[20px] h-[30px] bg-cover bg-center bg-[url("/images/free-icon-up-arrow-5174032.png")];
+    transform: rotate(180deg);
+}
+
+.button-close{
+    @apply bg-[url("/images/free-icon-x-symbol-75519.png")] inline-block w-[25px] h-[20px] bg-cover bg-center
+}
+
+.todo-input{
+   @apply bg-[#E0F2FE]
+}
