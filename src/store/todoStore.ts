@@ -1,83 +1,105 @@
 import { create } from "zustand";
-import {createJSONStorage, persist} from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 
-interface TodoState {
-    todos: string[];
-    completedTodos: string[];
-    addTodo: (todo: string) => void;
-    completeTodo: (index: number) => void;
-    removeTodo: (index: number) => void;
-    modifyTodo: (index: number, newText: string) => void;
-    moveTodoUp: (index: number) => void;
-    moveTodoDown: (index: number) => void;
-    moveCompletedUp: (index: number) => void;
-    moveCompletedDown: (index: number) => void;
+interface Task {
+    id: string;
+    text: string;
 }
 
-export const useTodoStore = create<TodoState>()(
+interface KanbanState {
+    tasks: {
+        todo: Task[];
+        progress: Task[];
+        completed: Task[];
+    };
+
+    addTask: (board: "todo" | "progress" | "completed", text: string) => void;
+    moveTask: (fromBoard: "todo" | "progress" | "completed", toBoard: "todo" | "progress" | "completed", taskId: string) => void;
+    deleteTask: (board: "todo" | "progress" | "completed", taskId: string) => void;
+    updateTask: (board: "todo" | "progress" | "completed", taskId: string, newText: string) => void;
+    moveUp: (board: "todo" | "progress" | "completed", index: number) => void;
+    moveDown: (board: "todo" | "progress" | "completed", index: number) => void;
+}
+
+export const useKanbanStore = create<KanbanState>()(
     persist(
         (set) => ({
-            todos: [],
-            completedTodos: [],
+            tasks: {
+                todo: [],
+                progress: [],
+                completed: [],
+            },
 
-            addTodo: (todo) => set((state) => ({
-                todos: [...state.todos, todo]
-            })),
+            addTask: (board, text) =>
+                set((state) => ({
+                    tasks: {
+                        ...state.tasks,
+                        [board]: [...state.tasks[board], { id: Date.now().toString(), text }],
+                    },
+                })),
 
-            completeTodo: (index) => set((state) => {
-                const newTodos = [...state.todos];
-                const completed = newTodos.splice(index, 1);
-                return {
-                    todos: newTodos,
-                    completedTodos: [...state.completedTodos, ...completed],
-                };
-            }),
+            moveTask: (fromBoard, toBoard, taskId) =>
+                set((state) => {
+                    if (fromBoard === toBoard) return state; // ✅ 같은 보드 내에서는 이동하지 않음
+                    const task = state.tasks[fromBoard].find((t) => t.id === taskId);
+                    if (!task) return state;
 
-            removeTodo: (index) => set((state) => {
-                const newCompletedTodos = [...state.completedTodos];
-                newCompletedTodos.splice(index, 1);
-                return { completedTodos: newCompletedTodos };
-            }),
+                    return {
+                        tasks: {
+                            ...state.tasks,
+                            [fromBoard]: state.tasks[fromBoard].filter((t) => t.id !== taskId),
+                            [toBoard]: [...state.tasks[toBoard], task],
+                        },
+                    };
+                }),
 
-            modifyTodo: (index, newText) => set((state) => {
-                const newTodos = [...state.todos];
-                if (index >= 0 && index < newTodos.length) {
-                    newTodos[index] = newText;
-                }
-                return { todos: newTodos };
-            }),
+            deleteTask: (board, taskId) =>
+                set((state) => ({
+                    tasks: {
+                        ...state.tasks,
+                        [board]: state.tasks[board].filter((t) => t.id !== taskId),
+                    },
+                })),
 
-            moveTodoUp: (index) => set((state) => {
-                if (index === 0) return state;
-                const newTodos = [...state.todos];
-                [newTodos[index], newTodos[index - 1]] = [newTodos[index - 1], newTodos[index]];
-                return { todos: newTodos };
-            }),
+            updateTask: (board, taskId, newText) =>
+                set((state) => ({
+                    tasks: {
+                        ...state.tasks,
+                        [board]: state.tasks[board].map((task) =>
+                            task.id === taskId ? { ...task, text: newText } : task
+                        ),
+                    },
+                })),
 
-            moveTodoDown: (index) => set((state) => {
-                if (index === state.todos.length - 1) return state;
-                const newTodos = [...state.todos];
-                [newTodos[index], newTodos[index + 1]] = [newTodos[index + 1], newTodos[index]];
-                return { todos: newTodos };
-            }),
+            moveUp: (board, index) =>
+                set((state) => {
+                    if (index === 0) return state;
+                    const updatedList = [...state.tasks[board]];
+                    [updatedList[index], updatedList[index - 1]] = [updatedList[index - 1], updatedList[index]];
+                    return {
+                        tasks: {
+                            ...state.tasks,
+                            [board]: updatedList,
+                        },
+                    };
+                }),
 
-            moveCompletedUp: (index) => set((state) => {
-                if (index === 0) return state;
-                const newCompleted = [...state.completedTodos];
-                [newCompleted[index], newCompleted[index - 1]] = [newCompleted[index - 1], newCompleted[index]];
-                return { completedTodos: newCompleted };
-            }),
-
-            moveCompletedDown: (index) => set((state) => {
-                if (index === state.completedTodos.length - 1) return state;
-                const newCompleted = [...state.completedTodos];
-                [newCompleted[index], newCompleted[index + 1]] = [newCompleted[index + 1], newCompleted[index]];
-                return { completedTodos: newCompleted };
-            }),
+            moveDown: (board, index) =>
+                set((state) => {
+                    if (index >= state.tasks[board].length - 1) return state;
+                    const updatedList = [...state.tasks[board]];
+                    [updatedList[index], updatedList[index + 1]] = [updatedList[index + 1], updatedList[index]];
+                    return {
+                        tasks: {
+                            ...state.tasks,
+                            [board]: updatedList,
+                        },
+                    };
+                }),
         }),
         {
-            name: "todo-storage",
-            storage: createJSONStorage(() => sessionStorage),
+            name: "kanban-storage",
+            storage: createJSONStorage(() => localStorage),
         }
     )
 );

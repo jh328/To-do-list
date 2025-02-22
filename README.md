@@ -1,9 +1,12 @@
 이 프로젝트는 [Next.js](https://nextjs.org/)와 [Zustand](https://github.com/pmndrs/zustand) 상태 관리를 활용한 **To-Do List** 입니다.
 
-
 ## 🚀 주요 기능
 - ✅ **Zustand**를 활용한 상태 관리
 - 📅 **react-calendar**을 이용한 달력 기능
+
+<img src="/project/project1.png" alt="프로젝트 이미지 1" width="600"/>
+<img src="/project/project2.png" alt="프로젝트 이미지 2" width="600"/>
+<img src="/project/project3.png" alt="프로젝트 이미지 3" width="600"/>
 
 ## 설치 및 실행 방법
 ```bash

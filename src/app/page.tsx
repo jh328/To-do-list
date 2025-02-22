@@ -1,9 +1,9 @@
-import Page from "@/app/component/Calendar";
+import KanbanBoard from "@/app/component/KanbanBoard";
 
 export default function Home() {
     return (
-        <div>
-            <Page/>
+        <div className="layout-container">
+            <KanbanBoard/>
         </div>
     );
 }

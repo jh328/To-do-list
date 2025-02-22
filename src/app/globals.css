@@ -20,7 +20,6 @@ html, body {
     width: 100%;
     margin: 0 auto;
     padding: 20px;
-
 }
 
 .layout-container {
@@ -31,47 +30,17 @@ html, body {
     align-items: center;
 }
 
-.todo-list {
-    @apply text-center text-blue-400 text-[18px]
-}
 
-.todo-list-input {
-    @apply underline-offset-1 text-[14px] text-center outline-none border-b border-gray-300 w-[200px] bg-transparent;
-}
 
-.todo-list-header {
-    @apply flex items-center gap-[8px] justify-center
-}
-
-.todo-box {
-    @apply w-[280px] min-h-[300px] bg-white rounded-[15px] shadow-lg p-4 border-2 border-blue-300;
-}
-
-.todo-container {
-    @apply flex justify-center items-center gap-6 mt-[20px]
-}
-
-.todo-title{
-    @apply text-blue-400 text-lg font-bold text-center mb-4;
-}
-
-.todo-item {
-    @apply bg-blue-400 text-white py-2 px-4 rounded-lg flex items-center justify-between shadow-md cursor-pointer;
-}
-
-.button-group{
-    @apply flex gap-x-1
-}
-
-.hidden{
+.hidden {
     @apply absolute invisible overflow-hidden h-0 w-0 m-0 p-0
 }
 
-.ico_modify{
+.ico_modify {
     @apply bg-[url("/images/free-icon-edit-button-6065488.png")] inline-block w-[40px] h-[40px] bg-cover bg-center
 }
 
-.ico_arrow{
+.ico_arrow {
     @apply inline-block w-[20px] h-[30px] bg-cover bg-center bg-[url("/images/free-icon-up-arrow-5174032.png")]
 }
 
@@ -80,10 +49,38 @@ html, body {
     transform: rotate(180deg);
 }
 
-.button-close{
+.button-close {
     @apply bg-[url("/images/free-icon-x-symbol-75519.png")] inline-block w-[25px] h-[20px] bg-cover bg-center
 }
 
-.todo-input{
-   @apply bg-[#E0F2FE]
+.todo-work {
+    @apply flex-1 px-2 py-1 border rounded-md
+}
+
+.todo-completed-button {
+    @apply ml-2 px-2 py-1 bg-blue-500 text-white rounded-md
+}
+
+.todo-input-box {
+    @apply flex mt-3
+}
+
+.todo-layout {
+    @apply w-[300px] bg-blue-100 p-4 rounded-lg shadow-md
+}
+
+.todo-title {
+    @apply text-blue-600 text-lg font-bold text-center
+}
+
+.todo-backgroud{
+    @apply flex items-center justify-between bg-blue-400 text-white px-3 py-2 rounded-md shadow-md
+}
+
+.todo-input-event{
+    @apply bg-white text-black px-2 py-1 rounded-md
+}
+
+.todo-kanbanbord{
+    @apply flex justify-center gap-6 p-6 bg-blue-100 min-h-screen
 }
