@@ -4,9 +4,9 @@
 - ✅ **Zustand**를 활용한 상태 관리
 - 📅 **react-calendar**을 이용한 달력 기능
 
-<img src="/images/project/project1.png" alt="프로젝트 이미지 1" width="600"/>
-<img src="/images/project/project2.png" alt="프로젝트 이미지 2" width="600"/>
-<img src="/images/project/project3.png" alt="프로젝트 이미지 3" width="600"/>
+<img src="public/images/project/project1.png" alt="프로젝트 이미지 1" width="600"/>
+<img src="public/images/project/project2.png" alt="프로젝트 이미지 2" width="600"/>
+<img src="public/images/project/project3.png" alt="프로젝트 이미지 3" width="600"/>
 
 ## 설치 및 실행 방법
 ```bash
