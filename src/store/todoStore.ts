@@ -40,7 +40,7 @@ export const useKanbanStore = create<KanbanState>()(
 
             moveTask: (fromBoard, toBoard, taskId) =>
                 set((state) => {
-                    if (fromBoard === toBoard) return state; // ✅ 같은 보드 내에서는 이동하지 않음
+                    if (fromBoard === toBoard) return state;
                     const task = state.tasks[fromBoard].find((t) => t.id === taskId);
                     if (!task) return state;
 
